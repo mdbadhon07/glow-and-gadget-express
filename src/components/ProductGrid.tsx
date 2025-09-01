@@ -78,8 +78,8 @@ const ProductGrid = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <Card key={product.id} className="card-neon group overflow-hidden">
+          {products.map((product, index) => (
+            <Card key={product.id} className="card-neon group overflow-hidden hover-scale card-stagger">
               <div className="relative">
                 <div className="h-64 bg-muted/50 flex items-center justify-center">
                   <span className="text-muted-foreground">Product Image</span>
@@ -98,7 +98,7 @@ const ProductGrid = () => {
                 {/* Quick add to cart */}
                 <Button 
                   size="icon"
-                  className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity btn-neon"
+                  className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity btn-neon hover-scale"
                 >
                   <ShoppingCart className="h-4 w-4" />
                 </Button>
@@ -133,7 +133,7 @@ const ProductGrid = () => {
                   </Badge>
                 </div>
 
-                <Button className="w-full btn-neon">
+                <Button className="w-full btn-neon hover-scale">
                   Add to Cart
                 </Button>
               </CardContent>

@@ -44,7 +44,7 @@ const FeaturedCategories = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {categories.map((category, index) => (
-            <Card key={category.title} className="card-neon group cursor-pointer overflow-hidden">
+            <Card key={category.title} className="card-neon group cursor-pointer overflow-hidden hover-scale card-stagger">
               <div className="relative h-64 overflow-hidden">
                 <img 
                   src={category.image} 
@@ -66,7 +66,7 @@ const FeaturedCategories = () => {
                 </p>
                 <Button 
                   variant="outline" 
-                  className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                  className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover-scale"
                 >
                   Explore {category.title}
                 </Button>

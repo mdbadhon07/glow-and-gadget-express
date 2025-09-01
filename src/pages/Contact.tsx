@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import PageTransition from "@/components/PageTransition";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Mail, Clock, MapPin } from "lucide-react";
@@ -8,87 +9,88 @@ const Contact = () => {
   const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
 
   return (
-    <div className="min-h-screen">
-      <Header />
-      
-      {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6">
-            Get in <span className="text-neon">Touch</span>
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            We're here to help! Reach out to us through any of the channels below and we'll get back to you as soon as possible.
-          </p>
-        </div>
-      </section>
-
-      {/* Contact Methods */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            {/* WhatsApp */}
-            <Card className="card-neon">
-              <CardContent className="p-8 text-center">
-                <div className="p-4 rounded-full bg-green-500/20 w-fit mx-auto mb-6">
-                  <MessageCircle className="h-12 w-12 text-green-500" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">WhatsApp</h3>
-                <p className="text-muted-foreground mb-6">
-                  Chat with us directly for instant support and quick responses.
-                </p>
-                <p className="text-lg font-semibold mb-6">{whatsappNumber}</p>
-                <Button 
-                  className="w-full bg-green-500 hover:bg-green-600 text-white"
-                  onClick={() => window.open(whatsappLink, '_blank')}
-                >
-                  Chat on WhatsApp
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Messenger */}
-            <Card className="card-neon">
-              <CardContent className="p-8 text-center">
-                <div className="p-4 rounded-full bg-blue-500/20 w-fit mx-auto mb-6">
-                  <MessageCircle className="h-12 w-12 text-blue-500" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Facebook Messenger</h3>
-                <p className="text-muted-foreground mb-6">
-                  Message us on Facebook for personalized assistance and product inquiries.
-                </p>
-                <Button 
-                  className="w-full bg-blue-500 hover:bg-blue-600 text-white"
-                  onClick={() => window.open('https://m.me/abglowgadgetworld', '_blank')}
-                >
-                  Message Us
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Email */}
-            <Card className="card-neon">
-              <CardContent className="p-8 text-center">
-                <div className="p-4 rounded-full bg-neon-pink/20 w-fit mx-auto mb-6">
-                  <Mail className="h-12 w-12 text-neon-pink" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Email</h3>
-                <p className="text-muted-foreground mb-6">
-                  Send us detailed inquiries and we'll respond within 24 hours.
-                </p>
-                <p className="text-lg font-semibold mb-6">info@abglow.com</p>
-                <Button 
-                  className="w-full btn-neon"
-                  onClick={() => window.open('mailto:info@abglow.com', '_blank')}
-                >
-                  Send Email
-                </Button>
-              </CardContent>
-            </Card>
+    <PageTransition>
+      <div className="min-h-screen">
+        <Header />
+        
+        {/* Hero Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 page-section">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-5xl sm:text-6xl font-bold mb-6 animate-fade-in">
+              Get in <span className="text-neon">Touch</span>
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed animate-slide-up">
+              We're here to help! Reach out to us through any of the channels below and we'll get back to you as soon as possible.
+            </p>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Contact Methods */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 page-section">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              
+              {/* WhatsApp */}
+              <Card className="card-neon hover-scale card-stagger">
+                <CardContent className="p-8 text-center">
+                  <div className="p-4 rounded-full bg-green-500/20 w-fit mx-auto mb-6">
+                    <MessageCircle className="h-12 w-12 text-green-500" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">WhatsApp</h3>
+                  <p className="text-muted-foreground mb-6">
+                    Chat with us directly for instant support and quick responses.
+                  </p>
+                  <p className="text-lg font-semibold mb-6">{whatsappNumber}</p>
+                  <Button 
+                    className="w-full bg-green-500 hover:bg-green-600 text-white"
+                    onClick={() => window.open(whatsappLink, '_blank')}
+                  >
+                    Chat on WhatsApp
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Messenger */}
+              <Card className="card-neon hover-scale card-stagger">
+                <CardContent className="p-8 text-center">
+                  <div className="p-4 rounded-full bg-blue-500/20 w-fit mx-auto mb-6">
+                    <MessageCircle className="h-12 w-12 text-blue-500" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">Facebook Messenger</h3>
+                  <p className="text-muted-foreground mb-6">
+                    Message us on Facebook for personalized assistance and product inquiries.
+                  </p>
+                  <Button 
+                    className="w-full bg-blue-500 hover:bg-blue-600 text-white"
+                    onClick={() => window.open('https://m.me/abglowgadgetworld', '_blank')}
+                  >
+                    Message Us
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Email */}
+              <Card className="card-neon hover-scale card-stagger">
+                <CardContent className="p-8 text-center">
+                  <div className="p-4 rounded-full bg-neon-pink/20 w-fit mx-auto mb-6">
+                    <Mail className="h-12 w-12 text-neon-pink" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">Email</h3>
+                  <p className="text-muted-foreground mb-6">
+                    Send us detailed inquiries and we'll respond within 24 hours.
+                  </p>
+                  <p className="text-lg font-semibold mb-6">info@abglow.com</p>
+                  <Button 
+                    className="w-full btn-neon"
+                    onClick={() => window.open('mailto:info@abglow.com', '_blank')}
+                  >
+                    Send Email
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
 
       {/* Business Hours & Info */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
@@ -207,7 +209,8 @@ const Contact = () => {
           </Card>
         </div>
       </section>
-    </div>
+      </div>
+    </PageTransition>
   );
 };
 

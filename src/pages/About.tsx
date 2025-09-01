@@ -1,58 +1,60 @@
 import Header from "@/components/Header";
+import PageTransition from "@/components/PageTransition";
 import { Card, CardContent } from "@/components/ui/card";
 import { Sparkles, Target, Users, Award } from "lucide-react";
 
 const About = () => {
   return (
-    <div className="min-h-screen">
-      <Header />
-      
-      {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6">
-            About <span className="text-neon">AB's Glow</span> & <span className="text-electric">Gadget World</span>
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            Your trusted destination for premium gadgets, beauty products, and lifestyle essentials that truly add value to your everyday life.
-          </p>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <Card className="card-neon">
-              <CardContent className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 rounded-full bg-neon-blue/20">
-                    <Target className="h-8 w-8 text-neon-blue" />
-                  </div>
-                  <h2 className="text-3xl font-bold text-neon-blue">Our Mission</h2>
-                </div>
-                <p className="text-muted-foreground leading-relaxed text-lg">
-                  To provide authentic, high-quality products that enhance our customers' lifestyles while building lasting relationships through exceptional service and trust.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="card-neon">
-              <CardContent className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 rounded-full bg-neon-pink/20">
-                    <Sparkles className="h-8 w-8 text-neon-pink" />
-                  </div>
-                  <h2 className="text-3xl font-bold text-neon-pink">Our Vision</h2>
-                </div>
-                <p className="text-muted-foreground leading-relaxed text-lg">
-                  To become Bangladesh's most trusted online destination for lifestyle products, where every purchase genuinely adds value to our customers' lives.
-                </p>
-              </CardContent>
-            </Card>
+    <PageTransition>
+      <div className="min-h-screen">
+        <Header />
+        
+        {/* Hero Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 page-section">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-5xl sm:text-6xl font-bold mb-6 animate-fade-in">
+              About <span className="text-neon">AB's Glow</span> & <span className="text-electric">Gadget World</span>
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed animate-slide-up">
+              Your trusted destination for premium gadgets, beauty products, and lifestyle essentials that truly add value to your everyday life.
+            </p>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Mission & Vision */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30 page-section">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <Card className="card-neon hover-scale card-stagger">
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 rounded-full bg-neon-blue/20">
+                      <Target className="h-8 w-8 text-neon-blue" />
+                    </div>
+                    <h2 className="text-3xl font-bold text-neon-blue">Our Mission</h2>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                    To provide authentic, high-quality products that enhance our customers' lifestyles while building lasting relationships through exceptional service and trust.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="card-neon hover-scale card-stagger">
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 rounded-full bg-neon-pink/20">
+                      <Sparkles className="h-8 w-8 text-neon-pink" />
+                    </div>
+                    <h2 className="text-3xl font-bold text-neon-pink">Our Vision</h2>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                    To become Bangladesh's most trusted online destination for lifestyle products, where every purchase genuinely adds value to our customers' lives.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
 
       {/* Our Story */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
@@ -123,7 +125,8 @@ const About = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </PageTransition>
   );
 };
 
