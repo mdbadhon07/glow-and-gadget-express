@@ -1,42 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* AB's Glow & Gadget World Design System - Blue & Pink Neon Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark theme base */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Neon blue primary */
+    --primary: 195 100% 50%;
+    --primary-foreground: 240 10% 3.9%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Pink secondary */
+    --secondary: 328 100% 50%;
+    --secondary-foreground: 240 10% 3.9%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 328 100% 50%;
+    --accent-foreground: 240 10% 3.9%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 195 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom neon colors */
+    --neon-blue: 195 100% 50%;
+    --neon-pink: 328 100% 50%;
+    --neon-purple: 270 100% 70%;
+    --electric-blue: 210 100% 56%;
+    --hot-pink: 340 100% 50%;
+
+    /* Gradients */
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-blue)), hsl(var(--neon-pink)));
+    --gradient-electric: linear-gradient(45deg, hsl(var(--electric-blue)), hsl(var(--neon-purple)));
+    --gradient-card: linear-gradient(145deg, hsl(240 5% 6%), hsl(240 5% 10%));
+
+    /* Glows */
+    --glow-blue: 0 0 20px hsl(var(--neon-blue) / 0.5);
+    --glow-pink: 0 0 20px hsl(var(--neon-pink) / 0.5);
+    --glow-subtle: 0 4px 20px hsl(var(--neon-blue) / 0.1);
+
+    /* Animations */
+    --transition-glow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +123,85 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  /* Neon button effects */
+  .btn-neon {
+    background: var(--gradient-neon);
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    transition: var(--transition-glow);
+  }
+
+  .btn-neon:hover {
+    box-shadow: var(--glow-blue);
+    transform: translateY(-2px);
+  }
+
+  .btn-hero {
+    background: var(--gradient-neon);
+    border: 1px solid hsl(var(--neon-blue) / 0.5);
+    color: hsl(var(--primary-foreground));
+    font-weight: 600;
+    transition: var(--transition-glow);
+  }
+
+  .btn-hero:hover {
+    box-shadow: var(--glow-blue);
+    transform: translateY(-2px);
+    border-color: hsl(var(--neon-blue));
+  }
+
+  /* Card effects */
+  .card-neon {
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--neon-blue) / 0.2);
+    transition: var(--transition-glow);
+  }
+
+  .card-neon:hover {
+    border-color: hsl(var(--neon-blue) / 0.5);
+    box-shadow: var(--glow-subtle);
+  }
+
+  /* Text gradients */
+  .text-neon {
+    background: var(--gradient-neon);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-electric {
+    background: var(--gradient-electric);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Glow effects */
+  .glow-blue {
+    box-shadow: var(--glow-blue);
+  }
+
+  .glow-pink {
+    box-shadow: var(--glow-pink);
+  }
+
+  /* Animations */
+  @keyframes pulse-neon {
+    0%, 100% {
+      box-shadow: 0 0 5px hsl(var(--neon-blue) / 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px hsl(var(--neon-blue) / 0.8), 0 0 30px hsl(var(--neon-pink) / 0.3);
+    }
+  }
+
+  .animate-pulse-neon {
+    animation: pulse-neon 2s ease-in-out infinite;
   }
 }
